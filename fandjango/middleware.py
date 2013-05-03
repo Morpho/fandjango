@@ -141,7 +141,7 @@ class FacebookMiddleware():
         documents in iframes). If they are not set correctly, IE will not set these cookies.
         """
         if FANDJANGO_CACHE_SIGNED_REQUEST:
-            if request.facebook:
+            if hasattr(request, 'facebook') and request.facebook:
                 response.set_cookie('signed_request', request.facebook.signed_request.generate())
             response['P3P'] = 'CP="IDC CURa ADMa OUR IND PHY ONL COM STA"'
         return response
