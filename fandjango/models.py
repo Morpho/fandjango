@@ -88,7 +88,7 @@ class User(models.Model):
             return "%s %s" % (self.first_name, self.last_name)
 
     @property
-    @cached(days=30)
+    @cached(days=1)
     def picture(self):
         """
         A string describing the URL to the user's profile picture.
